@@ -2,5 +2,6 @@
 /test/fixtures
 /docs/.presta
 /docs/build
+/docs/node_modules
 sandbox.js
 /node_modules

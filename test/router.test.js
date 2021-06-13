@@ -8,11 +8,29 @@ module.exports = async (test, assert) => {
   ])
 
   test('router - match', async () => {
-    assert(router('/a').route === '/:slug')
-    assert(router('/posts/a').route === '/:page/:slug')
+    assert(
+      router('/a')
+        .map(r => r.route)
+        .includes('/:slug')
+    )
+    assert(
+      router('/a')
+        .map(r => r.route)
+        .includes('*')
+    )
+    assert(
+      router('/posts/a')
+        .map(r => r.route)
+        .includes('/:page/:slug')
+    )
+    assert(
+      router('/posts/a')
+        .map(r => r.route)
+        .includes('*')
+    )
   })
 
   test('router - no match', async () => {
-    assert(router('/posts/a/b').route === '*')
+    assert(router('/posts/a/b').pop().route === '*')
   })
 }
