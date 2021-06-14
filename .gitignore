@@ -4,4 +4,13 @@
 /docs/build
 /docs/node_modules
 sandbox.js
-/node_modules
+node_modules
+dist
+.nvmrc
+
+cli.js
+extract.js
+html.js
+load.js
+source-filesystem.js
+utils.js

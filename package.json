@@ -7,6 +7,8 @@
     "presta": "cli.js"
   },
   "scripts": {
+    "build": "esbuild lib/cli.js lib/extract.js lib/html.js lib/load.js lib/source-filesystem.js lib/utils.js --bundle --outdir=. --platform=node --target=node12 --minify --sourcemap=inline --external:fsevents --external:esbuild-register --external:esbuild --external:pocket.io --external:presta",
+    "watch": "npm run build -- --watch",
     "prepare": "npx husky install && npx commitizen init cz-conventional-changelog --save-dev --save-exact",
     "test": "rm -rf ./fixtures && NODE_ENV=test node test",
     "test:watch": "NODE_ENV=test nodemon --ignore fixtures/ test",
@@ -47,13 +49,15 @@
     "watch-dependency-graph": "^2.6.1"
   },
   "devDependencies": {
+    "@types/debug": "^4.1.5",
     "baretest": "^2.0.0",
     "commitizen": "^4.2.4",
     "cz-conventional-changelog": "^3.3.0",
     "husky": "^6.0.0",
     "nodemon": "^2.0.4",
     "prettier-standard": "^16.4.1",
-    "semantic-release": "^17.4.2"
+    "semantic-release": "^17.4.2",
+    "typescript": "^4.3.2"
   },
   "config": {
     "commitizen": {
